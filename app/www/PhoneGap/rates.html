@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="js/jquery.mobile.custom.min.js"></script>
+    <script src="js/angular.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.custom.structure.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.custom.theme.min.css" />
+    <title>Hello World</title>
+
+    <script type="text/javascript">
+     
+        function distanceFrom(points) {
+            var lat1 = points.lat1;
+            var radianLat1 = lat1 * (Math.PI / 180);
+            var lng1 = points.lng1;
+            var radianLng1 = lng1 * (Math.PI / 180);
+            var lat2 = points.lat2;
+            var radianLat2 = lat2 * (Math.PI / 180);
+            var lng2 = points.lng2;
+            var radianLng2 = lng2 * (Math.PI / 180);
+            var earth_radius = 6371; // or 6371 for kilometers
+            var diffLat = (radianLat1 - radianLat2);
+            var diffLng = (radianLng1 - radianLng2);
+            var sinLat = Math.sin(diffLat / 2);
+            var sinLng = Math.sin(diffLng / 2);
+            var a = Math.pow(sinLat, 2.0) + Math.cos(radianLat1) * Math.cos(radianLat2) * Math.pow(sinLng, 2.0);
+            var distance = earth_radius * 2 * Math.asin(Math.min(1, Math.sqrt(a)));
+            return distance.toFixed(1);
+        }
+
+        window.onload = function() {
+            window.navigator.geolocation.getCurrentPosition(locator, Nolocation, { timeout: 10000 });
+
+            function locator(pos) {
+                document.getElementById('footer').innerHTML = "<a style='color: #4D4D4D;' href='http://maps.google.com/maps?saddr=" + pos.coords.latitude + "," + pos.coords.longitude + "&daddr=Wynyard Lane,+Sydney'>" + distanceFrom({
+                    // YOU
+                    'lat1': pos.coords.latitude,
+                    'lng1': pos.coords.longitude,
+                    // WLCP
+                    'lat2': -33.86558,
+                    'lng2': 151.206754
+                }) + " km</a>";
+                document.getElementById('navigation').innerHTML = "<a style='color: #4D4D4D;' href='http://maps.google.com/maps?saddr=" + pos.coords.latitude + "," + pos.coords.longitude + "&daddr=Wynyard Lane,+Sydney'><img src='images/navigation.png' /></a>"
+            };
+
+            function Nolocation() {
+                document.getElementById('footer').innerHTML = "<span style='font-size:12px;color:red' id='error'>Please turn on<br>Location Services of your browser</span>"
+                document.getElementById('navigation').innerHTML = "<a style='color: #4D4D4D;' href='http://maps.google.com/?q=wynyard lane,+sydney'><img src='images/navigation.png' /></a>"
+            };
+        }
+
+        $(document).ready(function() {
+
+            $('#1').hide();
+            $('#2').hide();
+            $('#3').hide();
+            $('#1b').click(function() {
+                if ($("#1").is(":hidden")) {
+                    $('#1').slideDown('fast', function() {
+                        $('#exp1').attr("src", "images/exp2.png");
+                    });
+                } else {
+                    $('#1').slideUp('fast', function() {
+                        $('#exp1').attr("src", "images/exp.png");
+                    });
+                }
+            });
+
+
+            $('#2b').click(function() {
+                if ($("#2").is(":hidden")) {
+                    $('#2').slideDown('fast', function() {
+                        $('#exp2').attr("src", "images/exp2.png");
+                    });
+                } else {
+                    $('#2').slideUp('fast', function() {
+                        $('#exp2').attr("src", "images/exp.png");
+                    });
+                }
+            });
+            $('#3b').click(function() {
+                if ($("#3").is(":hidden")) {
+                    $('#3').slideDown('fast', function() {
+                        $('#exp3').attr("src", "images/exp2.png");
+                    });
+                } else {
+                    $('#3').slideUp('fast', function() {
+                        $('#exp3').attr("src", "images/exp.png");
+                    });
+                }
+            });
+        });
+
+    </script>
+</head>
+<body>
+<div data-role="page" data-theme="b" data-content-theme="b">
+    <div data-role="header">
+        <div class="headerWrap">
+            <div class="mainWrap" style="text-align:left;padding:5px;padding-left:80px;">
+                <a href="javascript:window.location.assign('index.html')"><img style="position:absolute;top:5px;left:20px" width="50px" src="images/icon.png"/><span style="font-size:20px;">Wynyard Lane<br>Car Park</span></a><a href="javascript:window.location.assign('index.html')"><img style="position:absolute;top:15px;right:20px" width="30px" src="images/home.png"/></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="middleWrap">
+            <div class="ratesWrap">
+                <div class="rates" style="border:0">
+
+
+                    <a href="javascript:void(0);" id="1b"><div class="distance" style="width:100%"><span style="color:#186FB6;font-size=16px;font-weight:bold;">Weekday Rates (after 6pm)</span><img style="float:right;margin-right:10px" id="exp1" width="20px" src="images/exp.png" /></div></a>
+                    <div class="distance2" style="width:100%" id="1">
+                        <table style="width:100%">
+                            <tr>
+                                <td width="50%">0 - 0.5 hour</td>
+                                <td width="50%" align="right">$12.00</td>
+                            </tr>
+                            <tr>
+                                <td>0.5 - 1 hour</td>
+                                <td align="right">$27.00</td>
+                            </tr>
+                            <tr>
+                                <td>1 - 2 hours</td>
+                                <td align="right">$47.00</td>
+                            </tr>
+                            <tr>
+                                <td>2 - 3 hours</td>
+                                <td align="right">$59.00</td>
+                            </tr>
+                            <tr>
+                                <td>3+ hours</td>
+                                <td align="right">$71.00</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Early Bird Rate</td>
+                                <td align="right">$25.00</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <a href="javascript:void(0);" id="2b"><div class="distance" style="width:100%"><span style="color:#186FB6;font-size=16px;font-weight:bold;">Weekday Evening Rates (after 6pm)</span><img style="float:right;margin-right:10px" id="exp2" width="20px" src="images/exp.png" /></div></a>
+                    <div class="distance2" style="width:100%" id="2">
+                        <table style="width:100%">
+                            <tr><td width="50%">Monday � Thursday</td><td width="50%" align="right">$20.00</td></tr>
+                            <tr><td >Friday</td><td align="right">$25.00</td></tr>
+                        </table>
+                    </div>
+                    <a href="javascript:void(0);" id="3b"><div class="distance" style="width:100%"><span style="color:#186FB6;font-size=16px;font-weight:bold;">Weekend Rates</span><img style="float:right;margin-right:10px" width="20px" id="exp3" src="images/exp.png" /></div></a>
+                    <div class="distance2" style="width:100%" id="3">
+                        <table style="width:100%">
+                            <tr>
+                                <td width="50%">Saturday flat rate</td>
+                                <td width="50%" align="right">$25.00</td>
+                            </tr>
+                            <tr>
+                                <td>(Entry before 6PM)</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday flat rate</td>
+                                <td align="right">$30.00</td>
+                            </tr>
+                            <tr>
+                                <td>(Entry after 6PM)</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>Sunday flat rate</td>
+                                <td align="right">$25.00</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div data-role="footer">
+                <div class="mainWrap"style="text-align:center;padding-top:5px">
+                    <span style="font-size:20px;">Open 24 hrs 7 days</span><br /><br />
+                    <center><div class="distance"><span>Distance to the car park:<br /><span style="font-size:32px;" id="footer"></span></span></div></center><br /><br />
+                </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+</html>

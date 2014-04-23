@@ -1,27 +1,8 @@
 <!DOCTYPE html>
-<!--
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html ng-app>
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
-        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <script src="js/jquery-1.11.0.min.js"></script>
         <script src="js/jquery.mobile.custom.min.js"></script>
@@ -31,21 +12,81 @@
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile.custom.structure.min.css" />
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile.custom.theme.min.css" />
         <title>Hello World</title>
+
+        <script type="text/javascript">
+
+
+            function distanceFrom(points) {
+                var lat1 = points.lat1;
+                var radianLat1 = lat1 * (Math.PI / 180);
+                var lng1 = points.lng1;
+                var radianLng1 = lng1 * (Math.PI / 180);
+                var lat2 = points.lat2;
+                var radianLat2 = lat2 * (Math.PI / 180);
+                var lng2 = points.lng2;
+                var radianLng2 = lng2 * (Math.PI / 180);
+                var earth_radius = 6371; // or 6371 for kilometers
+                var diffLat = (radianLat1 - radianLat2);
+                var diffLng = (radianLng1 - radianLng2);
+                var sinLat = Math.sin(diffLat / 2);
+                var sinLng = Math.sin(diffLng / 2);
+                var a = Math.pow(sinLat, 2.0) + Math.cos(radianLat1) * Math.cos(radianLat2) * Math.pow(sinLng, 2.0);
+                var distance = earth_radius * 2 * Math.asin(Math.min(1, Math.sqrt(a)));
+                return distance.toFixed(1);
+            }
+
+            window.onload = function() {
+                window.navigator.geolocation.getCurrentPosition(locator, Nolocation, { timeout: 10000 });
+
+                function locator(pos) {
+                    document.getElementById('footer').innerHTML = "<a style='color: #4D4D4D;' href='http://maps.google.com/maps?saddr=" + pos.coords.latitude + "," + pos.coords.longitude + "&daddr=Wynyard Lane,+Sydney'>" + distanceFrom({
+                        // YOU
+                        'lat1': pos.coords.latitude,
+                        'lng1': pos.coords.longitude,
+                        // WLCP
+                        'lat2': -33.86558,
+                        'lng2': 151.206754
+                    }) + " km</a>";
+                    document.getElementById('navigation').innerHTML = "<a style='color: #4D4D4D;' href='http://maps.google.com/maps?saddr=" + pos.coords.latitude + "," + pos.coords.longitude + "&daddr=Wynyard Lane,+Sydney'><img src='images/navigation.png' /></a>"
+                };
+
+                function Nolocation() {
+                    document.getElementById('footer').innerHTML = "<span style='font-size:12px;color:red' id='error'>Please turn on<br>Location Services of your browser</span>"
+                    document.getElementById('navigation').innerHTML = "<a style='color: #4D4D4D;' href='http://maps.google.com/?q=wynyard lane,+sydney'><img src='images/navigation.png' /></a>"
+                };
+            }
+
+
+        </script>
     </head>
     <body>
     <div data-role="page" data-theme="b" data-content-theme="b">
         <div data-role="header">
-            <h1>Page Header</h1>
+            <div class="headerWrap">
+                <div class="mainWrap" style="text-align:left;padding:5px;padding-left:80px;">
+                    <img style="position:absolute;top:5px;left:20px" width="50px" src="images/icon.png" alt="" /><span style="font-size:20px;">Wynyard Lane<br>Car Park</span>
+                </div>
+            </div>
         </div>
 
-        <div data-role="main" class="ui-content">
-            <label for="fullname">Input Field:</label>
-            <input type="text" ng-model="yourName" name="fullname" id="fullname" placeholder="Name..">
-            <h1>{{yourName}}!</h1>
-        </div>
+        <div class="wrapper">
+            <div class="middleWrap">
+                <div class="mainWrap">
+                    <div class="menu" style="border:0">
+                        <div class="menuitup" style="float:left;background:url('images/div_bg.png') repeat 100% 100% transparent;" align="center" valign="middle"><a href="javascript:window.location.assign('rates.htm')" /><img src="images/rates.png" /></a></div>
+                        <div class="menuitup" style="float:right;background:url('images/div_bg.png') repeat 100% 100% transparent;" align="center" valign="middle"><a href="tel:0292902752"><img src="images/telephone.png"/></a></div>
+                        <div class="menuitdo" style="float:left;background:url('images/div_bg.png') repeat 100% 100% transparent;" align="center"><a href="mailto:parking@wynyardlanecarpark.com.au" /><img src="images/email.png" /></a></div>
+                        <div class="menuitdo" style="float:right;background:url('images/div_bg.png') repeat 100% 100% transparent;" align="center" id="navigation"></div>
+                    </div>
+                </div>
+            </div>
+
 
         <div data-role="footer">
-            <h1>2014 Mauro Inc.</h1>
+            <div class="mainWrap"style="text-align:center;padding-top:5px">
+                <span style="font-size:20px;">Open 24 hrs 7 days</span><br /><br />
+                <center><div class="distance"><span>Distance to the car park:<br /><span style="font-size:32px;" id="footer"></span></span></div></center><br /><br />
+            </div>
         </div>
     </div>
 
