@@ -41,7 +41,7 @@ a
 
 html, body {
     height: 100%;
-    font-family:"Arial";
+    font-family:arial, helvetica, sans-serif ;
     color:#000000;
     font-size:14pt;
 }
@@ -52,7 +52,7 @@ html, body {
     -webkit-box-sizing:border-box;
     border:1px solid #555;
     display:table-cell;vertical-align:middle;
-    border-right:	1px solid #BBB;
+    border-right: 1px solid #BBB;
     border-top: 1px solid #BBB;
 }
 
@@ -67,26 +67,8 @@ html, body {
 .wrapper {
     min-height: 100%;
     height: auto !important;
-    height: 100%;
     margin: 0 auto -160px;
 }
-
-.menu{height:225px}
-
-.footerWrap, .push {
-    height:160px;
-}
-
-.push2{
-    height:126px;
-}
-
-.footerWrap2 {
-
-    height:160px;
-}
-.menuitup{width:160px;margin-bottom:0px}
-.menuitdo{width:160px;margin-top:0px}
 
 body
 {
@@ -114,7 +96,7 @@ body
     font-weight: bold;
     text-shadow: 0 1px 1px #F6F6F6;
     box-shadow: 0 1px 4px rgba(255, 255, 255, 0.3);
-    border-radius: 0px 0px 5px 5px;
+    border-radius: 0 0 5px 5px;
     font-size: 12pt;
 }
 
@@ -131,11 +113,6 @@ body
     margin-left: 28%;
 }
 
-.mainWrap div img
-{
-    width: 60%;
-}
-
 body
 {
     font-size: 10pt;
@@ -146,29 +123,6 @@ body
     background-size: 640px 100%;
 }
 
-/* Landscape layout (with min-width) */
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-    .menuitup{width:120px;margin-bottom:0px}
-    .menuitdo{width:120px;margin-top:0px}
-
-
-    .mainWrap div img
-    {
-        width: 50%;
-    }
-
-    body
-    {
-        font-size: 8pt;
-    }
-
-    .wrapper {
-        min-height: 100%;
-        height: auto !important;
-        height: 100%;
-        margin: 0 auto -160px;
-    }
-
-    .push2{height:46px;}
-    .menu{height:80px}
+.menuitup, .menuitdo {
+    width: 50%;
 }
