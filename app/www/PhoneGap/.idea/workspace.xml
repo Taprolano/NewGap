@@ -48,10 +48,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rates.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="rates.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rates.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="5" selection-start="791" selection-end="791" vertical-scroll-proportion="0.24659231" vertical-offset="105" max-vertical-offset="3971">
+            <state line="13" column="11" selection-start="729" selection-end="740" vertical-scroll-proportion="-2.9759035" vertical-offset="0" max-vertical-offset="3971">
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -76,11 +76,20 @@
                 <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#center#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1398213598037" expanded="true" signature="1950:1965" placeholder="..." />
-                <marker date="1398213598037" expanded="true" signature="2452:2467" placeholder="..." />
-                <marker date="1398213598037" expanded="true" signature="2763:2787" placeholder="..." />
-                <marker date="1398213598037" expanded="true" signature="2937:2952" placeholder="..." />
+                <marker date="1398213743425" expanded="true" signature="1945:1960" placeholder="..." />
+                <marker date="1398213743425" expanded="true" signature="2447:2462" placeholder="..." />
+                <marker date="1398213743425" expanded="true" signature="2758:2782" placeholder="..." />
+                <marker date="1398213743425" expanded="true" signature="2932:2947" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="6" column="59" selection-start="321" selection-end="321" vertical-scroll-proportion="-0.073089704" vertical-offset="180" max-vertical-offset="1083">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -117,6 +126,7 @@
         <option value="$PROJECT_DIR$/css/index.css" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/rates.html" />
+        <option value="$PROJECT_DIR$/config.xml" />
       </list>
     </option>
   </component>
@@ -183,6 +193,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PhoneGap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PhoneGap" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -633,7 +657,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rates.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="5" selection-start="791" selection-end="791" vertical-scroll-proportion="0.24659231" vertical-offset="105" max-vertical-offset="3971">
+        <state line="13" column="11" selection-start="729" selection-end="740" vertical-scroll-proportion="-2.9759035" vertical-offset="0" max-vertical-offset="3971">
           <folding>
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -658,11 +682,18 @@
             <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#span#0;n#div#0;n#center#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1398213598037" expanded="true" signature="1950:1965" placeholder="..." />
-            <marker date="1398213598037" expanded="true" signature="2452:2467" placeholder="..." />
-            <marker date="1398213598037" expanded="true" signature="2763:2787" placeholder="..." />
-            <marker date="1398213598037" expanded="true" signature="2937:2952" placeholder="..." />
+            <marker date="1398213743425" expanded="true" signature="1945:1960" placeholder="..." />
+            <marker date="1398213743425" expanded="true" signature="2447:2462" placeholder="..." />
+            <marker date="1398213743425" expanded="true" signature="2758:2782" placeholder="..." />
+            <marker date="1398213743425" expanded="true" signature="2932:2947" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="59" selection-start="321" selection-end="321" vertical-scroll-proportion="-0.073089704" vertical-offset="180" max-vertical-offset="1083">
+          <folding />
         </state>
       </provider>
     </entry>
